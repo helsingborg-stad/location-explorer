@@ -48,7 +48,7 @@ add_action('plugins_loaded', function () {
     $acfExportManager->setTextdomain('location-explorer');
     $acfExportManager->setExportFolder(LOCATIONEXPLORER_PATH . 'source/php/AcfFields/');
     $acfExportManager->autoExport(array(
-        'location-base'          => 'group_56a89f42dddb432b',
+        'location-images'          => 'group_5a4ce43df2db2',
     ));
     $acfExportManager->import();
 });

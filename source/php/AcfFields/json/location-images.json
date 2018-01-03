@@ -1,0 +1,49 @@
+[{
+    "key": "group_5a4ce43df2db2",
+    "title": "Region images",
+    "fields": [
+        {
+            "key": "field_5a4ce482417a0",
+            "label": "Mood setting region images",
+            "name": "location_region_images",
+            "type": "gallery",
+            "instructions": "Add some nice images from the region that are inspirational.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": "",
+            "max": "",
+            "insert": "append",
+            "library": "all",
+            "min_width": 640,
+            "min_height": 360,
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg,jpeg"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "area"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": ""
+}]
+
