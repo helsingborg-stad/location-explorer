@@ -1,6 +1,6 @@
 <?php
 
-namespace WpListings\Entity;
+namespace LocationExplorer\Entity;
 
 class Taxonomy
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace WpListings;
+namespace LocationExplorer;
 
-class Area extends \WpListings\Entity\PostType
+class Area extends \LocationExplorer\Entity\PostType
 {
     public static $postTypeSlug;
     public static $taxonomySlug;
@@ -11,7 +11,11 @@ class Area extends \WpListings\Entity\PostType
     public function __construct()
     {
         self::$postTypeSlug = $this->postType();
-        self::$taxonomySlug = $this->categories();
+
+        self::$taxonomySlug = $this->transport();
+        self::$taxonomySlug = $this->nature();
+        self::$taxonomySlug = $this->community();
+        self::$taxonomySlug = $this->facility();
     }
 
     /**
@@ -21,20 +25,20 @@ class Area extends \WpListings\Entity\PostType
     public function postType() : string
     {
         // Create posttype
-        $postType = new \WpListings\Entity\PostType(
-            _x('Listings', 'Post type plural', 'wp-listings'),
-            _x('Listing', 'Post type singular', 'wp-listings'),
-            'listing',
+        $postType = new \LocationExplorer\Entity\PostType(
+            _x('Areas', 'Post type plural', 'location-explorer'),
+            _x('Area', 'Post type singular', 'location-explorer'),
+            'area',
             array(
-                'description'          =>   __('WP Listings could be used for any type of "buy and sell" ads.', 'wp-listings'),
-                'menu_icon'            =>   'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPnRyYWRlPC90aXRsZT48cGF0aCBkPSJNNS41MiA2MC40OGE0LjY0IDQuNjQgMCAwIDEtNC42Mi00QTQ5LjIxIDQ5LjIxIDAgMCAxIDkuODYgMjFDMjUuNjQ2LS43IDU1LjgwNi01Ljk1NCA3OCA5LjEzbDIuMDktMi44OWExLjUgMS41IDAgMCAxIDIuNjIuMzRsNS41MiAxNC4zM2ExLjUgMS41IDAgMCAxLTEuNDcgMmwtMTUuMzMtLjc1YTEuNSAxLjUgMCAwIDEtMS4xNC0yLjM4TDcyLjM2IDE3QzU0LjUxMiA0Ljk5MyAzMC4zNjQgOS4yNTIgMTcuNyAyNi42NGEzOS41NyAzOS41NyAwIDAgMC0zIDQuOTNoMTIuNWEuOTEuOTEgMCAwIDEgLjggMS4zNiA3LjExIDcuMTEgMCAwIDAtLjY0IDUuNCA2LjMyIDYuMzIgMCAwIDAgMy44NSAzLjggMTEuNzggMTEuNzggMCAwIDAgOS43OS0uNzRsOS40LTUuMjZhLjY1LjY1IDAgMCAxIC44Mi4xNWwxOS42NSAyNCAyLjQzIDIuOTNhNCA0IDAgMCAxLS44OSA2IDQuMDYgNC4wNiAwIDAgMS00LjkzLS42MWwtLjMzLS4zMmEuMDkuMDkgMCAwIDAtLjE0LjA4IDQgNCAwIDAgMS0xLjcyIDQuMDggNC4xIDQuMSAwIDAgMS01LjA3LS41OGwtLjMtLjI5YS4wOS4wOSAwIDAgMC0uMTQuMDggNCA0IDAgMCAxLTEuNzIgNC4wOCA0LjEgNC4xIDAgMCAxLTUuMDYtLjU2bC0uMy0uMjlhLjA5LjA5IDAgMCAwLS4xNC4wOCA0IDQgMCAwIDEtNi4yIDRsLjM4LS42N2E3LjIyIDcuMjIgMCAwIDAtMS04LjcgNyA3IDAgMCAwLTMuODMtMS45MyA2LjkzIDYuOTMgMCAwIDAtNC4wNS0zLjE2QTYuOTQgNi45NCAwIDAgMCAzMyA1OS43MWE2LjkgNi45IDAgMCAwLTIuNzYtMy44NyA3LjMzIDcuMzMgMCAwIDAtOS40OSAxLjU0bC0yLjU0IDMuMTFINS41MnYtLjAxem0yMi41NS0xLjgyYTMuNDggMy40OCAwIDAgMC00LjQzLjg5TDIxIDYyLjc5YTMuMzQgMy4zNCAwIDAgMCAuNTMgNC43NWwuNC4zMmEzLjM0IDMuMzQgMCAwIDAgMy43NC4yNi4xNi4xNiAwIDAgMSAuMjQuMTcgMy4zNSAzLjM1IDAgMCAwIDEuMjIgMy4yOGwuMzMuMjZhMy4zNiAzLjM2IDAgMCAwIDMuNjEuMzUuMTcuMTcgMCAwIDEgLjI1LjE3IDMuMzcgMy4zNyAwIDAgMCAxLjI3IDNsLjIzLjE4YTMuMzkgMy4zOSAwIDAgMCAzLjY1LjM0LjE5LjE5IDAgMCAxIC4yOS4xNGMuMTMuODQuNTczIDEuNiAxLjI0IDIuMTNsLjE0LjExYTMuNDIgMy40MiAwIDAgMCA1LjA4LTFsLjQ5LS44N2EzLjUzIDMuNTMgMCAwIDAtLjU5LTQuMzggMy40IDMuNCAwIDAgMC0zLjctLjU4LjEuMSAwIDAgMS0uMTQtLjFBMy4zNiAzLjM2IDAgMCAwIDM0LjY5IDY4Yy0uNS4wOS0uMzktLjM1LS4zOS0uMzVhMy4zNiAzLjM2IDAgMCAwLTQuNzMtNC4yMmMtLjM4LjA1LS4zMy0uMjktLjMzLS4yOWEzLjM0IDMuMzQgMCAwIDAtMS4xNy00LjQ4em02OS4zNi0yMi44N2wtLjMyLTFhNC42NyA0LjY3IDAgMCAwLTQuNDMtMy4xOGgtMTFhMTEuODUgMTEuODUgMCAwIDEtNC4yMi0uNzhMNTYuNzcgMjIuOWExMi45MSAxMi45MSAwIDAgMC0xMi40MiAxLjc5bC0xMyA5Ljg3YTIuNDcgMi40NyAwIDAgMCAuNjUgNC4wOCA4LjE1IDguMTUgMCAwIDAgNy4yMy0uMzZsMTEuMDYtNi4xOWEyIDIgMCAwIDEgMi40OS40N2wyNC4xMSAyOS4zYS42MS42MSAwIDAgMCAuODYuMDlsMS0uODNhMi44MiAyLjgyIDAgMCAxIDEuNzgtLjYzaDcuODNhMzkuODQgMzkuODQgMCAwIDEtNjIuNTIgMjEuMjVMMjguMDUgNzlhMS41IDEuNSAwIDAgMC0xLTIuNDRMMTEuNzggNzVhMS41IDEuNSAwIDAgMC0xLjU4IDJsNC43MSAxNC42MWExLjUgMS41IDAgMCAwIDIuNTkuMzlsMi4yNC0yLjc3YzE3LjAzMiAxMy4xMzMgNDAuNTk0IDEzLjc3MyA1OC4zMTQgMS41ODQgMTcuNzItMTIuMTkgMjUuNTUtMzQuNDIgMTkuMzc2LTU1LjAyNHoiIGZpbGw9IiMwMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==',
+                'description'          =>   __('Describe different areas and make them searchable.', 'location-explorer'),
+                'menu_icon'            =>   'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIj48cGF0aCBkPSJNMjU2IDBDMTUzLjc1NSAwIDcwLjU3MyA4My4xODIgNzAuNTczIDE4NS40MjZjMCAxMjYuODg4IDE2NS45MzkgMzEzLjE2NyAxNzMuMDA0IDMyMS4wMzUgNi42MzYgNy4zOTEgMTguMjIyIDcuMzc4IDI0Ljg0NiAwIDcuMDY1LTcuODY4IDE3My4wMDQtMTk0LjE0NyAxNzMuMDA0LTMyMS4wMzVDNDQxLjQyNSA4My4xODIgMzU4LjI0NCAwIDI1NiAwem0wIDI3OC43MTljLTUxLjQ0MiAwLTkzLjI5Mi00MS44NTEtOTMuMjkyLTkzLjI5M1MyMDQuNTU5IDkyLjEzNCAyNTYgOTIuMTM0czkzLjI5MSA0MS44NTEgOTMuMjkxIDkzLjI5My00MS44NSA5My4yOTItOTMuMjkxIDkzLjI5MnoiIGZpbGw9IiNGRkYiLz48L3N2Zz4=',
                 'public'               =>   true,
                 'publicly_queriable'   =>   true,
                 'show_ui'              =>   true,
                 'show_in_nav_menus'    =>   true,
                 'has_archive'          =>   true,
                 'rewrite'              =>   array(
-                    'slug'       =>   __('listing', 'wp-listings'),
+                    'slug'       =>   __('area', 'location-explorer'),
                     'with_front' =>   false
                 ),
                 'hierarchical'          =>  false,
@@ -44,9 +48,9 @@ class Area extends \WpListings\Entity\PostType
             )
         );
 
-        $postType->addTableColumn(
+        /*$postType->addTableColumn(
             'category',
-            __('Category'),
+            __('Category', 'location-explorer'),
             true,
             function ($column, $postId) {
                 $i = 0;
@@ -60,42 +64,81 @@ class Area extends \WpListings\Entity\PostType
                     $i++;
                 }
             }
-        );
-
-        $postType->addTableColumn(
-            'place',
-            __('Place'),
-            true,
-            function ($column, $postId) {
-                $i = 0;
-                $places = get_the_terms($postId, self::$placesTaxonomySlug);
-                foreach ((array)$places as $place) {
-                    if ($i > 0) {
-                        echo ', ';
-                    }
-
-                    echo isset($place->name) ? $place->name : '';
-                    $i++;
-                }
-            }
-        );
+        );*/
 
         return $postType->slug;
     }
 
     /**
-     * Create category taxonomy
+     * Create transport taxonomy
      * @return void
      */
-    public function categories() : string
+    public function transport() : string
     {
-        $categories = new \WpListings\Entity\Taxonomy(
-            __('Category', 'wp-listings'),
-            __('Categories', 'wp-listings'),
-            'listing-category',
-            array('listing'),
+        $categories = new \LocationExplorer\Entity\Taxonomy(
+            __('Infrastructure', 'location-explorer'),
+            __('Infrastructures', 'location-explorer'),
+            'infrastructure',
+            array('area'),
             array(
-                'hierarchical' => true
+                'hierarchical' => false
+            )
+        );
+
+        return $categories->slug;
+    }
+
+    /**
+     * Create nature taxonomy
+     * @return void
+     */
+    public function nature() : string
+    {
+        $categories = new \LocationExplorer\Entity\Taxonomy(
+            __('Nature type', 'location-explorer'),
+            __('Nature types', 'location-explorer'),
+            'nature',
+            array('area'),
+            array(
+                'hierarchical' => false
+            )
+        );
+
+        return $categories->slug;
+    }
+
+    /**
+     * Create community taxonomy
+     * @return void
+     */
+    public function community() : string
+    {
+        $categories = new \LocationExplorer\Entity\Taxonomy(
+            __('Community size', 'location-explorer'),
+            __('Community sizes', 'location-explorer'),
+            'community',
+            array('area'),
+            array(
+                'hierarchical' => false
+            )
+        );
+
+        return $categories->slug;
+    }
+
+    /**
+     * Create facility taxonomy
+     * @return void
+     */
+    public function facility() : string
+    {
+        $categories = new \LocationExplorer\Entity\Taxonomy(
+            __('Facility', 'location-explorer'),
+            __('Facilities', 'location-explorer'),
+            'facility',
+            array('area'),
+            array(
+                'hierarchical' => false
             )
         );
 
