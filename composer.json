@@ -1,0 +1,26 @@
+{
+    "name": "helsingborg-stad/location-explorer",
+    "description": "Explore nice places to live",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sebastian Thulin",
+            "email": "sebastian.thulin@helsingborg.se"
+        },
+        {
+            "name": "Nikolas Ramstedt",
+            "email": "rikolas.ramstedt@helsingborg.se"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/helsingborg-stad/acf-export-manager.git"
+        }
+    ],
+    "require": {
+        "composer/installers": "~1.0",
+        "helsingborg-stad/acf-export-manager": ">=1.0.0"
+    }
+}
