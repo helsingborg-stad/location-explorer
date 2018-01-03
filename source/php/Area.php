@@ -5,17 +5,17 @@ namespace LocationExplorer;
 class Area extends \LocationExplorer\Entity\PostType
 {
     public static $postTypeSlug;
-    public static $taxonomySlug;
+    public static $taxonomySlugs = array();
     public static $placesTaxonomySlug;
 
     public function __construct()
     {
-        self::$postTypeSlug = $this->postType();
+        self::$taxonomySlugs[$this->transport()]        = __("Transportation", 'location-explorer');
+        self::$taxonomySlugs[$this->nature()]           = __("Nature", 'location-explorer');
+        self::$taxonomySlugs[$this->community()]        = __("Community", 'location-explorer');
+        self::$taxonomySlugs[$this->facility()]         = __("Facilities", 'location-explorer');
 
-        self::$taxonomySlug = $this->transport();
-        self::$taxonomySlug = $this->nature();
-        self::$taxonomySlug = $this->community();
-        self::$taxonomySlug = $this->facility();
+        self::$postTypeSlug = $this->postType();
     }
 
     /**
@@ -48,23 +48,28 @@ class Area extends \LocationExplorer\Entity\PostType
             )
         );
 
-        /*$postType->addTableColumn(
-            'category',
-            __('Category', 'location-explorer'),
-            true,
-            function ($column, $postId) {
-                $i = 0;
-                $categories = get_the_terms($postId, self::$taxonomySlug);
-                foreach ((array)$categories as $category) {
-                    if ($i > 0) {
-                        echo ', ';
-                    }
+        // Add taxonomies to listing
+        if (!empty(self::$taxonomySlugs) && is_array(self::$taxonomySlugs)) {
+            foreach (self::$taxonomySlugs as $slug => $label) {
 
-                    echo isset($category->name) ? $category->name : '';
-                    $i++;
-                }
+                $postType->addTableColumn(
+                    $slug,
+                    $label,
+                    true,
+                    function ($column, $postId) {
+                        $i = 0;
+                        $taxonomyData = get_the_terms($postId, $column);
+                        foreach ((array)$taxonomyData as $taxonomyItem) {
+                            if ($i > 0) {
+                                echo ', ';
+                            }
+                            echo isset($taxonomyItem->name) ? $taxonomyItem->name : '';
+                            $i++;
+                        }
+                    }
+                );
             }
-        );*/
+        }
 
         return $postType->slug;
     }
