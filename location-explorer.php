@@ -50,7 +50,8 @@ add_action('plugins_loaded', function () {
     $acfExportManager->autoExport(array(
         'location-images'   => 'group_5a4ce43df2db2',
         'location-adress'   => 'group_5a4ce57435598',
-        'location-links'    => 'group_5a4ce9b2a982c'
+        'location-links'    => 'group_5a4ce9b2a982c',
+        'location-meta'     => 'group_5a4ceae3ea641'
     ));
     $acfExportManager->import();
 });
