@@ -21,7 +21,7 @@
             'collapsed' => 'field_5a4ce9e9fd55b',
             'min' => 0,
             'max' => 0,
-            'layout' => 'row',
+            'layout' => 'table',
             'button_label' => __('Add new link', 'location-explorer'),
             'sub_fields' => array(
                 0 => array(
