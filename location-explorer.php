@@ -23,7 +23,7 @@ define('LOCATIONEXPLORER_URL', plugins_url('', __FILE__));
 define('LOCATIONEXPLORER_TEMPLATE_PATH', LOCATIONEXPLORER_PATH . 'templates/');
 
 add_action('plugins_loaded', function () {
-    var_dump(load_plugin_textdomain('location-explorer', false, plugin_basename(dirname(__FILE__)) . '/languages'));
+    load_plugin_textdomain('location-explorer', false, plugin_basename(dirname(__FILE__)) . '/languages');
 });
 
 require_once LOCATIONEXPLORER_PATH . 'source/php/Vendor/Psr4ClassLoader.php';
