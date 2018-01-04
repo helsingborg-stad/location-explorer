@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Location Explorer\n"
 "POT-Creation-Date: 2018-01-04 09:19+0100\n"
-"PO-Revision-Date: 2018-01-04 09:22+0100\n"
+"PO-Revision-Date: 2018-01-04 09:29+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -226,12 +226,12 @@ msgstr "Uppdatera %s"
 #: source/php/Entity/Taxonomy.php:35
 #, php-format
 msgid "Add New %s"
-msgstr "Lägg till ny %s"
+msgstr "Lägg till nytt %s"
 
 #: source/php/Entity/Taxonomy.php:36
 #, php-format
 msgid "New %s Name"
-msgstr "Ny %s namn"
+msgstr "Nytt %s namn"
 
 #: vendor/helsingborg-stad/acf-export-manager/src/AcfExportManager.php:362
 msgid "Export with AcfExportManager"
