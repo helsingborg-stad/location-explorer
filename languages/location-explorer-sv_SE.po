@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Location Explorer\n"
-"POT-Creation-Date: 2018-01-03 15:01+0100\n"
-"PO-Revision-Date: 2018-01-03 15:09+0100\n"
+"POT-Creation-Date: 2018-01-04 09:19+0100\n"
+"PO-Revision-Date: 2018-01-04 09:22+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -19,6 +19,96 @@ msgstr ""
 "_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: source/php/AcfFields/php/location-adress.php:6
+msgid "Location (Adress)"
+msgstr "Plats (Adress)"
+
+#: source/php/AcfFields/php/location-adress.php:10
+msgid "Geographical location"
+msgstr "Geografisk plats"
+
+#: source/php/AcfFields/php/location-adress.php:13
+msgid "Enter an adress for the center of this area"
+msgstr ""
+"Ange en adress (eller ortens namn) för att markera ut centrum för området"
+
+#: source/php/AcfFields/php/location-images.php:6
+msgid "Region images"
+msgstr "Områdets bilder"
+
+#: source/php/AcfFields/php/location-images.php:10
+msgid "Mood setting region images"
+msgstr "Inspirerande bilder av området"
+
+#: source/php/AcfFields/php/location-images.php:13
+msgid "Add some nice images from the region that are inspirational."
+msgstr ""
+"Lägg till några bilder som lockar besökaren att bosätta sig i området. "
+
+#: source/php/AcfFields/php/location-links.php:6
+msgid "External links"
+msgstr "Externa länkar"
+
+#: source/php/AcfFields/php/location-links.php:10
+msgid "Links to some external resources"
+msgstr "Länkar till relaterad information"
+
+#: source/php/AcfFields/php/location-links.php:25
+msgid "Add new link"
+msgstr "Lägg till ny länk"
+
+#: source/php/AcfFields/php/location-links.php:29
+msgid "Link label"
+msgstr "Länknamn"
+
+#: source/php/AcfFields/php/location-links.php:48
+msgid "Link url"
+msgstr "Länkadress"
+
+#: source/php/AcfFields/php/location-meta.php:6
+msgid "Area quick facts"
+msgstr "Områdets snabbfakta"
+
+#: source/php/AcfFields/php/location-meta.php:10
+msgid "General facts"
+msgstr "Generella fakta"
+
+#: source/php/AcfFields/php/location-meta.php:29
+msgid "Area metadata"
+msgstr "Områdets faktafält"
+
+#: source/php/AcfFields/php/location-meta.php:48
+msgid "Heading"
+msgstr "Rubrik"
+
+#: source/php/AcfFields/php/location-meta.php:51
+msgid "Add a heading for this metafield"
+msgstr "Lägg till en rubrik till det här faktafältet"
+
+#: source/php/AcfFields/php/location-meta.php:60
+msgid "Population"
+msgstr "Befolkningsmängd"
+
+#: source/php/AcfFields/php/location-meta.php:61
+msgid "Preschool"
+msgstr "Förskola"
+
+#: source/php/AcfFields/php/location-meta.php:62
+msgid "Elementary school"
+msgstr "Grundskola"
+
+#: source/php/AcfFields/php/location-meta.php:63
+msgid "Education"
+msgstr "Utbildning"
+
+#: source/php/AcfFields/php/location-meta.php:64
+msgid "Distances"
+msgstr "Avstånd"
+
+#: source/php/AcfFields/php/location-meta.php:76
+msgid "Information"
+msgstr "Information"
 
 #: source/php/Area.php:13
 msgid "Transportation"
