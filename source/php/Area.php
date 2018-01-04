@@ -76,7 +76,7 @@ class Area extends \LocationExplorer\Entity\PostType
 
     /**
      * Create transport taxonomy
-     * @return void
+     * @return string
      */
     public function transport() : string
     {
@@ -95,7 +95,7 @@ class Area extends \LocationExplorer\Entity\PostType
 
     /**
      * Create nature taxonomy
-     * @return void
+     * @return string
      */
     public function nature() : string
     {
@@ -114,7 +114,7 @@ class Area extends \LocationExplorer\Entity\PostType
 
     /**
      * Create community taxonomy
-     * @return void
+     * @return string
      */
     public function community() : string
     {
@@ -133,7 +133,7 @@ class Area extends \LocationExplorer\Entity\PostType
 
     /**
      * Create facility taxonomy
-     * @return void
+     * @return string
      */
     public function facility() : string
     {
